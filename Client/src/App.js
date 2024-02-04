@@ -64,9 +64,9 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ flexGrow: 1, }}>
+
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={12} md={4}sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card style={{ maxWidth: 400, width: '100%', margin: 20, borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
               <CardContent>
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
@@ -104,7 +104,7 @@ function App() {
             </Card>
           </Grid>
 
-          <Grid item xs={8}>
+          <Grid item xs={12} sm={12} md={8} >
             <Card style={{ maxWidth: 800, width: '100%', margin: 20, borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
               <CardContent>
                 <Typography variant="h6" style={{ marginBottom: 10, textAlign: "center" }}>
@@ -115,7 +115,7 @@ function App() {
             </Card>
           </Grid>
         </Grid>
-      </Box>
+
       {/* <WaterTankLevel waterLevel={waterLevel} /> */}
       {/* <WaterTankHeightUpdater /> */}
 
