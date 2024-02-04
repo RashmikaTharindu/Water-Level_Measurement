@@ -25,7 +25,7 @@ function App() {
   const handleWaterLevelChange = (newWaterLevel) => {
     setWaterLevel(newWaterLevel);
   };
-
+  let myArray = [];
 
   useEffect(() => {
     getData();
@@ -36,28 +36,26 @@ function App() {
     onValue(testRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        console.log(data);
         setReading(data);
         addValue(data);
-      } else {
-        console.log('Data not found');
-      }
+      } 
     });
   };
 
   function addValue(newValue) {
-    // Add the new value to the end of the array
-    let myArray = [];
-    myArray.push(newValue);
 
-    // If the array length exceeds 10, remove the oldest value
-    if (myArray.length > 10) {
-      myArray.shift();
+    const formattedDate = new Date().toLocaleString();
+    newValue.date = formattedDate;
+
+    if (myArray.length ===5) {
+      myArray.pop();
     }
+    myArray.unshift(newValue);
     setPastData(myArray);
+
   }
 
-  // Animation for icons
+
   const iconAnimationProps = {
     opacity: 1,
     from: { opacity: 0 },
@@ -66,7 +64,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ flexGrow: 1, display: "inline-block" }}>
+      <Box sx={{ flexGrow: 1, }}>
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Card style={{ maxWidth: 400, width: '100%', margin: 20, borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
@@ -118,8 +116,8 @@ function App() {
           </Grid>
         </Grid>
       </Box>
-      <WaterTankLevel waterLevel={waterLevel} />
-      <WaterTankHeightUpdater />
+      {/* <WaterTankLevel waterLevel={waterLevel} /> */}
+      {/* <WaterTankHeightUpdater /> */}
 
     </div>
   );

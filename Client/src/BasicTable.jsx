@@ -20,12 +20,12 @@ export default function BasicTable({ rows }) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {rows.map((row,index) => (
                         <TableRow
-                            key={row.name}
+                            key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell align="right">{row.Date}</TableCell>
+                            <TableCell align="left">{row.date}</TableCell>
                             <TableCell align="right">{row.distance}</TableCell>
                             <TableCell align="right">{row.percentage}</TableCell>
                         </TableRow>
