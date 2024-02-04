@@ -4,18 +4,13 @@ import { db } from './firebase-config';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
-import LinearProgress from '@mui/material/LinearProgress';
+
 import Typography from '@mui/material/Typography';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import PollIcon from '@mui/icons-material/Poll';
 import OpacityIcon from '@mui/icons-material/Opacity';
-import WavesIcon from '@mui/icons-material/Waves';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import SpeedIcon from '@mui/icons-material/Speed';
-import Box from '@mui/material/Box';
 import BasicTable from './BasicTable';
-import WaterTankLevel from './WaterTankLevel';
-import WaterTankHeightUpdater from './TankHeightUpdate';
 
 function App() {
   const [reading, setReading] = useState({});
@@ -87,7 +82,7 @@ function App() {
                       <SpeedIcon style={{ fontSize: 20, verticalAlign: 'middle', marginLeft: 5, color: '#009688' }} />
                     </Typography>
                     <Typography variant="h4" style={{ color: '#009688', fontWeight: 'bold' }}>
-                      {reading.distance || 'N/A'}
+                      {reading.distance}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} style={{ textAlign: 'center', marginTop: 20 }}>
